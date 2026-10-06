@@ -26,7 +26,6 @@
       margin: 0 0 20px 0;
     }
 
-    /* Selector de clase para los inputs */
     .campo {
       display: block;
       width: 100%;
@@ -56,7 +55,6 @@
       background-color: #555;
     }
 
-    /* Selector de identificador para el área de resultados */
     #resultado {
       margin-top: 20px;
       padding: 12px;
@@ -94,7 +92,6 @@
       var ciudad = document.getElementById("ciudad").value;
       var resultado = document.getElementById("resultado");
 
-      // Validación simple (required solo funciona dentro de un <form>)
       if (nombre === "" || correo === "" || edad === "" || ciudad === "") {
         resultado.style.display = "block";
         resultado.style.borderColor = "#c62828";

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de registro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #222;
+      margin: 0;
+      padding: 40px 16px;
+    }
+
+    .contenedor {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      padding: 24px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0 0 20px 0;
+    }
+
+    /* Selector de clase para los inputs */
+    .campo {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 12px;
+      padding: 8px;
+      border: 1px solid #999;
+      font-size: 14px;
+    }
+
+    .campo:focus {
+      outline: none;
+      border-color: #222;
+    }
+
+    .boton {
+      width: 100%;
+      padding: 10px;
+      background-color: #222;
+      color: #fff;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background-color: #555;
+    }
+
+    /* Selector de identificador para el área de resultados */
+    #resultado {
+      margin-top: 20px;
+      padding: 12px;
+      border: 1px solid #2e7d32;
+      background-color: #e8f5e9;
+      font-size: 14px;
+      display: none;
+    }
+
+    #resultado p {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>Formulario de registro</h1>
+
+    <input id="nombre" class="campo" type="text" placeholder="Nombre completo" required>
+    <input id="correo" class="campo" type="email" placeholder="Correo electrónico" required>
+    <input id="edad" class="campo" type="number" placeholder="Edad" required>
+    <input id="ciudad" class="campo" type="text" placeholder="Ciudad" required>
+
+    <button class="boton" onclick="capturarDatos()">Enviar datos</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function capturarDatos() {
+      var nombre = document.getElementById("nombre").value;
+      var correo = document.getElementById("correo").value;
+      var edad = document.getElementById("edad").value;
+      var ciudad = document.getElementById("ciudad").value;
+      var resultado = document.getElementById("resultado");
+
+      // Validación simple (required solo funciona dentro de un <form>)
+      if (nombre === "" || correo === "" || edad === "" || ciudad === "") {
+        resultado.style.display = "block";
+        resultado.style.borderColor = "#c62828";
+        resultado.style.backgroundColor = "#ffebee";
+        resultado.innerHTML = "Por favor completa todos los campos.";
+        return;
+      }
+
+      resultado.style.display = "block";
+      resultado.style.borderColor = "#2e7d32";
+      resultado.style.backgroundColor = "#e8f5e9";
+      resultado.innerHTML =
+        "<strong>¡Los datos fueron capturados con éxito!</strong>" +
+        "<p>Nombre: " + nombre + "</p>" +
+        "<p>Correo: " + correo + "</p>" +
+        "<p>Edad: " + edad + "</p>" +
+        "<p>Ciudad: " + ciudad + "</p>";
+    }
+  </script>
+
+</body>
+</html>
